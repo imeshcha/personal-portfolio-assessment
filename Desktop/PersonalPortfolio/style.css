@@ -9,6 +9,11 @@
 
 body {
     background-color: #000000;
+    background-image: url('background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .navigation {
@@ -160,6 +165,7 @@ body {
     min-height: 100vh;
     background-color: #000000;
     color: #ffffff;
+    border-radius: 15px;
 }
 
 .education h1 {
@@ -200,7 +206,7 @@ body {
 
 .edu-card:hover {
     transform: translateY(-10px);
-    background-color: #fefefed4;
+    background-color: #ffffffb5;
     color: #000000;
 }
 
@@ -211,7 +217,7 @@ body {
 .edu-card h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #fefefed4;
+    color: #ffffff;
 }
 
 .edu-card p {
@@ -226,8 +232,9 @@ body {
     justify-content: center;
     padding: 50px 20px;
     min-height: 100vh;
-    background-color: #000000;
+    background-color: #00000076;
     color: #ffffff;
+    border-radius: 15px;
 }
 
 .skills h1 {
@@ -247,7 +254,7 @@ body {
 }
 
 .skill-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: ffffffb5;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -302,9 +309,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
+    background-color: #00000076;
     color: #ffffff;
-    padding-top: 20px;
+    border-radius: 15px;
 }
 
 .projects h1 {
@@ -320,36 +327,123 @@ body {
     height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
+    padding-top: 150px;
     align-items: center;
+    flex-direction: column;
 }
 
 .project-content {
-    background: rgb(55, 53, 53);
+    background: rgb(0, 0, 0);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.923);
     border-bottom: 4px solid #ffffff;
     border-radius: 20px;
-    padding: 0px;
+    padding: 0;
+    margin-top: -50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 1000px;
-    height: 600px;
+    width: 1100px;
+    height: 580px;
     color: white;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    transition: transform 0.3s ease;
+    gap: 0;
+    overflow: hidden;
+}
+
+.project-image {
+    flex: 0 0 50%;
+    margin: 0;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.project-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+.project-details {
+    flex: 0 0 50%;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
+    padding: 40px;
 }
 
-.project-content h2 {
+.project-details h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #FF6D1F;
+    color: #ffffff;
 }
 
-.project-content p {
+.project-details p {
     font-size: 1.2rem;
+}
+
+/* Contact Section */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 50px 20px;
+}
+
+.contact h1 {
+    font-size: 1rem;
+    padding: 10px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.contacttext {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 4px solid #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacttext p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #000000;
+    color: #888888;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
