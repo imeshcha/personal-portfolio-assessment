@@ -1,3 +1,24 @@
+const menuIcon = document.querySelector('#menu-icon');
+const navlist = document.querySelector('.navlist');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x'); // Optional: Toggle icon style if needed (requires boxicons or similar logic for fa)
+    navlist.classList.toggle('open');
+};
+
+// Close menu when scrolling or clicking a link
+window.onscroll = () => {
+    menuIcon.classList.remove('bx-x');
+    navlist.classList.remove('open');
+};
+
+document.querySelectorAll('.navlist li a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuIcon.classList.remove('bx-x');
+        navlist.classList.remove('open');
+    });
+});
+
 const textDisplay = document.querySelector(".text-slider");
 const phrases = ["FRONT END DEVELOPER", "BLOCKCHAIN DEVELOPER", "CONTENT CREATOR"];
 let i = 0;

@@ -11,17 +11,20 @@
 
 <body>
     <div class="navigation">
+        <div class="menu-icon" id="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <ul class="navlist">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#education">EDUCATION</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
     </div>
 
-    <div class="home">
+    <div class="home" id="home">
         <div class="hometext">
             <h1>IMESH</h1>
             <h1>CHATHURA</h1>
@@ -31,7 +34,7 @@
         </div>
     </div>
 
-    <div class="about">
+    <div class="about" id="about">
         <div class="abouttext">
             <h1>ABOUT</h1>
             <span class="text-slider"></span>
@@ -43,7 +46,7 @@
                 creator, blending my love for tech with visual storytelling to share ideas with the world.</p>
         </div>
     </div>
-    <div class="education">
+    <div class="education" id="education">
         <h1>EDUCATION</h1>
         <div class="educationtext">
             <div class="edu-card">
@@ -63,7 +66,7 @@
             </div>
         </div>
     </div>
-    <div class="skills">
+    <div class="skills" id="skills">
         <h1>SKILLS</h1>
         <div class="skillstext">
             <div class="skill-card">
@@ -93,7 +96,7 @@
         </div>
     </div>
 
-    <div class="projects">
+    <div class="projects" id="projects">
         <h1>PROJECTS</h1>
         <div class="sticky-card">
             <div class="project-content">
@@ -109,31 +112,55 @@
                         allows users to log daily transactions, categorize spending, and visualize budget trends,
                         ensuring efficient financial tracking through a clean and responsive desktop experience.
                     </p>
+                    <div class="project-actions">
+                        <a href="https://github.com/imeshcha/Expenses_Tracker" target="_blank" class="project-btn">View
+                            on GitHub <i class="fa-brands fa-github"></i></a>
+                        <!--<a href="#" target="_blank" class="project-btn">Live Demo <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>-->
+                    </div>
                 </div>
             </div>
         </div>
         <div class="sticky-card">
             <div class="project-content">
-                <div class="project-image" style="background-image: url('project_placeholder.png');"></div>
+                <div class="project-image" style="background-image: url('Des3nations.png');"></div>
                 <div class="project-details">
                     <p>PROJECT 2/3</p>
-                    <h2>Project 2</h2>
-                    <p>Description for Project 2. Stacks on top of the previous card.</p>
+                    <h2>Des3nation: E-Ticket Booking System</h2>
+                    <p>Des3nation is a versatile booking platform for travel destinations, events, and hostels. It
+                        issues e-tickets as NFTs, providing secure digital ownership and fraud prevention. <br><br>The
+                        system supports seamless transactions using both crypto and fiat payments, offering a
+                        streamlined and modern user experience.</p>
+                    <!-- <div class="project-actions">
+                        <a href="https://github.com/imeshcha" target="_blank" class="project-btn">View on GitHub <i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="#" target="_blank" class="project-btn">Live Demo <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="sticky-card">
             <div class="project-content">
-                <div class="project-image" style="background-image: url('project_placeholder.png');"></div>
+                <div class="project-image" style="background-image: url('localCrypto.png');"></div>
                 <div class="project-details">
                     <p>PROJECT 3/3</p>
-                    <h2>Project 3</h2>
-                    <p>Description for Project 3. Clean and modern stacking effect.</p>
+                    <h2>LocalCrypt: Arc Security Hub</h2>
+                    <p>LocalCrypt is a blockchain-based security platform that monitors and prevents cyber attacks on
+                        local networks. It uses smart contracts to enforce security policies and provides real-time
+                        alerts for suspicious activity. <br><br>The platform is designed to be easy to use and provides
+                        a secure and transparent environment for users to monitor their networks.</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/imeshcha/local-crypto-hub" target="_blank" class="project-btn">View
+                            on GitHub <i class="fa-brands fa-github"></i></a>
+                        <a href="https://local-crypto-hub-l449.vercel.app/" target="_blank" class="project-btn">Live
+                            Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="contact">
+    <div class="contact" id="contact">
         <h1>Let's Connect</h1>
         <div class="contact-container">
             <div class="contact-form">
@@ -183,7 +210,7 @@
         </div>
     </div>
     <div class="footer">
-        <p>© 2026 Imesh Chathura.</p>
+        <p>© 2026 IMESH CHATHURA</p>
     </div>
 
     <script src="script.js"></script>
