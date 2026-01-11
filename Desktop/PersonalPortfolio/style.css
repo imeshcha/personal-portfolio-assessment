@@ -718,6 +718,11 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    * {
+        margin: 0;
+        margin-left: 0.5%;
+    }
+
     .home {
         flex-direction: column;
         padding-top: 100px;
@@ -727,8 +732,12 @@ body {
 
     .hometext {
         font-size: 3rem;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
+        min-height: 90vh;
+        /* Fill first view */
+        justify-content: center;
+        padding-top: 50px;
     }
 
     .hometext h1 {
@@ -736,10 +745,15 @@ body {
     }
 
     .img {
-        margin-top: 50px;
-        width: 100%;
+        margin-top: 30px;
+        /* Reduced from 50px */
+        width: 90%;
+        /* Reduced from 100% */
         border-left: 1px solid rgba(255, 255, 255, 0.2);
-        /* Reset heavy border for mobile */
+        margin-bottom: 10px;
+        /* Add space between image and about section */
+        align-self: center;
+        /* Ensure centered if flex direction is column */
     }
 
     .abouttext {
@@ -747,13 +761,46 @@ body {
     }
 
     .abouttext .text-slider {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
+        /* Reduced from 2.5rem */
+    }
+
+    .details {
+        font-size: 0.9rem;
+        /* Reduced from 1.2rem */
+        padding: 15px;
+        /* Reduced padding */
+    }
+
+    .educationtext,
+    .skillstext {
+        padding: 10px;
+        /* Reduced from 40px */
+        width: 100%;
+        gap: 15px;
+        /* Adjust gap */
     }
 
     .edu-card,
     .skill-card {
         width: 100%;
-        height: auto;
+        height: 220px;
+        /* Fixed height for consistency */
+        padding: 20px 10px;
+        margin: 0;
+        /* consistent margin controlled by gap */
+    }
+
+    .edu-card h2,
+    .skill-card h2 {
+        font-size: 1.4rem;
+        /* Reduced from 2rem */
+    }
+
+    .edu-card p,
+    .skill-boards p {
+        font-size: 0.9rem;
+        /* Reduced from 1rem */
     }
 
     .projects {
@@ -761,18 +808,33 @@ body {
     }
 
     .sticky-card {
-        padding-top: 80px;
-        height: auto;
-        min-height: 100vh;
-        position: static;
-        /* Sticky might be tricky on small screens, falling back */
+        padding-top: 110px;
+        /* Clear fixed nav */
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .project-content {
+        display: flex;
         flex-direction: column;
-        width: 95%;
+        width: 100%;
+        /* Full width within container */
+        max-width: 400px;
+        /* Limit max width for readability */
         height: auto;
-        margin-top: 0;
+        min-height: 500px;
+        /* Ensure substantial height */
+        background: #000;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        /* Spacing between cards if not fully sticking */
     }
 
     .project-image {
@@ -787,7 +849,13 @@ body {
     }
 
     .project-details h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
+        /* Reduced from 1.8rem */
+    }
+
+    .project-details p {
+        font-size: 0.9rem;
+        /* Added for consistency */
     }
 
     .contact-container {
