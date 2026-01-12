@@ -15,7 +15,7 @@ menuIcon.onclick = (e) => {
 window.onscroll = () => {
     menuIcon.classList.remove('bx-x');
     navlist.classList.remove('open');
-    menuIcon.style.display = 'block'; // Show icon again
+    menuIcon.style.display = ''; // Revert to CSS (none on desktop, block on mobile)
 };
 
 // Close menu when clicking outside
@@ -23,7 +23,7 @@ document.onclick = (e) => {
     if (navlist.classList.contains('open') && !navlist.contains(e.target) && e.target !== menuIcon) {
         menuIcon.classList.remove('bx-x');
         navlist.classList.remove('open');
-        menuIcon.style.display = 'block'; // Show icon again
+        menuIcon.style.display = ''; // Revert to CSS
     }
 };
 
@@ -31,7 +31,7 @@ document.querySelectorAll('.navlist li a').forEach(link => {
     link.addEventListener('click', () => {
         menuIcon.classList.remove('bx-x');
         navlist.classList.remove('open');
-        menuIcon.style.display = 'block'; // Show icon again
+        menuIcon.style.display = ''; // Revert to CSS
     });
 });
 
@@ -40,33 +40,24 @@ const phrases = ["FRONT END DEVELOPER", "BLOCKCHAIN DEVELOPER", "CONTENT CREATOR
 let i = 0;
 
 function updateText() {
-    // 1. Slide current text DOWN and fade out
     textDisplay.classList.add("slide-out-down");
 
     setTimeout(() => {
-        // 2. Prepare new text: Instant jump to TOP (hidden)
         textDisplay.classList.add("no-transition", "hidden-top");
         textDisplay.classList.remove("slide-out-down");
 
-        // Change text content
         i = (i + 1) % phrases.length;
         textDisplay.textContent = phrases[i];
 
-        // Force browser reflow to apply the position change instantly
         void textDisplay.offsetWidth;
 
-        // 3. Slide new text DOWN (to center) and fade in
         textDisplay.classList.remove("no-transition", "hidden-top");
-    }, 500); // 0.5s transition matches CSS
+    }, 500);
 }
 
-// Initial text
 textDisplay.textContent = phrases[0];
-
-// Change text every 3 seconds
 setInterval(updateText, 3000);
 
-// Contact Form Handling
 var form = document.getElementById("contact-form");
 
 async function handleSubmit(event) {
@@ -82,7 +73,7 @@ async function handleSubmit(event) {
     }).then(response => {
         if (response.ok) {
             status.innerHTML = "Feedback submitted!";
-            status.style.color = "#4bb543"; // Success green
+            status.style.color = "#4bb543";
             form.reset();
         } else {
             response.json().then(data => {
@@ -91,12 +82,12 @@ async function handleSubmit(event) {
                 } else {
                     status.innerHTML = "Oops! There was a problem submitting your form";
                 }
-                status.style.color = "#ff0000"; // Error red
+                status.style.color = "#ff0000";
             })
         }
     }).catch(error => {
         status.innerHTML = "Oops! There was a problem submitting your form";
-        status.style.color = "#ff0000"; // Error red
+        status.style.color = "#ff0000";
     });
 }
 form.addEventListener("submit", handleSubmit);
