@@ -60,29 +60,34 @@ body {
 
     .navlist {
         position: absolute;
-        top: 0;
+        top: 20px;
+        /* Detach from top */
         right: -100%;
         /* Slide from right */
         left: auto;
         /* Reset left */
         width: 60%;
-        /* Or full width 100% depending on preference, 60% is standard side menu */
-        height: 100vh;
-        padding: 80px 20px;
-        /* Padding for top to avoid overlapping icon */
-        background: rgba(0, 0, 0, 0.9);
-        /* Dark background matching theme */
-        backdrop-filter: blur(10px);
-        /* Glassmorphism */
+        /* Card width */
+        height: auto;
+        /* Auto height for card look, or fit content? If items are few. Else 90vh */
+        min-height: 500px;
+        padding: 40px 20px;
+        background: rgba(0, 0, 0, 0.6);
+        /* Transparent but readable */
+        backdrop-filter: blur(15px);
+        /* Stronger blur for glass effect */
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* or flex-start for side aligned */
         justify-content: flex-start;
         gap: 30px;
         transition: 0.4s ease;
-        border-radius: 0;
-        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        /* Requested radius */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Full border for card */
+        margin-right: 20px;
+        /* Spacing from edge */
     }
 
     .navlist.open {
@@ -716,28 +721,45 @@ body {
     margin-left: 10px;
 }
 
-/* Mobile Responsiveness */
+
 @media (max-width: 768px) {
     * {
         margin: 0;
-        margin-left: 0.5%;
+        box-sizing: border-box;
+    }
+
+    .navigation {
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+        box-shadow: none;
+        padding: 15px 20px;
+        justify-content: flex-end;
+        pointer-events: none;
+    }
+
+    .menu-icon {
+        pointer-events: auto;
     }
 
     .home {
         flex-direction: column;
-        padding-top: 100px;
+        padding-top: 80px;
         height: auto;
-        min-height: 100vh;
+        min-height: auto;
+        padding-bottom: 20px;
     }
 
     .hometext {
-        font-size: 3rem;
+        font-size: 5rem;
         align-items: flex-start;
         text-align: left;
-        min-height: 90vh;
-        /* Fill first view */
+        min-height: 85vh;
         justify-content: center;
-        padding-top: 50px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
     }
 
     .hometext h1 {
@@ -745,71 +767,76 @@ body {
     }
 
     .img {
-        margin-top: 30px;
-        /* Reduced from 50px */
+        margin-top: 50px;
         width: 90%;
-        /* Reduced from 100% */
         border-left: 1px solid rgba(255, 255, 255, 0.2);
-        margin-bottom: 10px;
-        /* Add space between image and about section */
+        margin-bottom: 30px;
         align-self: center;
-        /* Ensure centered if flex direction is column */
+    }
+
+    .about {
+        height: auto;
+        min-height: auto;
+        padding: 40px 0;
     }
 
     .abouttext {
         width: 95%;
+        margin-bottom: 20px;
+    }
+
+    .education,
+    .skills {
+        min-height: auto;
+        padding: 20px 0;
     }
 
     .abouttext .text-slider {
         font-size: 1.5rem;
-        /* Reduced from 2.5rem */
     }
 
     .details {
         font-size: 0.9rem;
-        /* Reduced from 1.2rem */
         padding: 15px;
-        /* Reduced padding */
     }
 
     .educationtext,
     .skillstext {
         padding: 10px;
-        /* Reduced from 40px */
         width: 100%;
         gap: 15px;
-        /* Adjust gap */
     }
 
     .edu-card,
     .skill-card {
-        width: 100%;
-        height: 220px;
-        /* Fixed height for consistency */
+        width: 90%;
+        margin: 10px auto;
+        height: 200px;
         padding: 20px 10px;
-        margin: 0;
-        /* consistent margin controlled by gap */
     }
 
     .edu-card h2,
     .skill-card h2 {
         font-size: 1.4rem;
-        /* Reduced from 2rem */
     }
 
     .edu-card p,
     .skill-boards p {
         font-size: 0.9rem;
-        /* Reduced from 1rem */
     }
 
     .projects {
         padding: 20px 0;
     }
 
+    .projects h1 {
+        margin-bottom: 50px;
+
+    }
+
     .sticky-card {
-        padding-top: 110px;
-        /* Clear fixed nav */
+        padding-top: 100px;
+
         height: 100vh;
         position: sticky;
         top: 0;
@@ -823,42 +850,85 @@ body {
         display: flex;
         flex-direction: column;
         width: 100%;
-        /* Full width within container */
         max-width: 400px;
-        /* Limit max width for readability */
         height: auto;
-        min-height: 500px;
-        /* Ensure substantial height */
+        min-height: 600px;
         background: #000;
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 20px;
         overflow: hidden;
         margin-bottom: 20px;
-        /* Spacing between cards if not fully sticking */
     }
 
     .project-image {
-        height: 250px;
-        /* Reduced fixed height for mobile */
+        height: 180px;
+
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        width: 100%;
+        background-size: cover;
+        background-position: center;
     }
 
     .project-details {
-        padding: 20px;
+        padding: 15px;
+
     }
 
     .project-details h2 {
-        font-size: 1.4rem;
-        /* Reduced from 1.8rem */
+        font-size: 1.2rem;
+
     }
 
     .project-details p {
-        font-size: 0.9rem;
-        /* Added for consistency */
+        font-size: 0.85rem;
+
+    }
+
+    .project-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        border-radius: 10px;
     }
 
     .contact-container {
         flex-direction: column;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .contact-info p,
+    .contact-info a {
+        font-size: 1rem;
+    }
+
+    .contact-info {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+
+    }
+
+    .email-content {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .icons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .email h2,
+    .social-cards h2 {
+        font-size: 1.2rem;
     }
 }

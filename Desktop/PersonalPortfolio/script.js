@@ -1,21 +1,37 @@
 const menuIcon = document.querySelector('#menu-icon');
 const navlist = document.querySelector('.navlist');
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x'); // Optional: Toggle icon style if needed (requires boxicons or similar logic for fa)
+menuIcon.onclick = (e) => {
+    e.stopPropagation(); // Prevent document click from triggering immediately
+    menuIcon.classList.toggle('bx-x');
     navlist.classList.toggle('open');
+    // Hide icon when menu is open
+    if (navlist.classList.contains('open')) {
+        menuIcon.style.display = 'none';
+    }
 };
 
-// Close menu when scrolling or clicking a link
+// Close menu when scrolling
 window.onscroll = () => {
     menuIcon.classList.remove('bx-x');
     navlist.classList.remove('open');
+    menuIcon.style.display = 'block'; // Show icon again
+};
+
+// Close menu when clicking outside
+document.onclick = (e) => {
+    if (navlist.classList.contains('open') && !navlist.contains(e.target) && e.target !== menuIcon) {
+        menuIcon.classList.remove('bx-x');
+        navlist.classList.remove('open');
+        menuIcon.style.display = 'block'; // Show icon again
+    }
 };
 
 document.querySelectorAll('.navlist li a').forEach(link => {
     link.addEventListener('click', () => {
         menuIcon.classList.remove('bx-x');
         navlist.classList.remove('open');
+        menuIcon.style.display = 'block'; // Show icon again
     });
 });
 
