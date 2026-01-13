@@ -20,6 +20,16 @@ body {
     background-repeat: no-repeat;
 }
 
+section,
+.home,
+.about,
+.education,
+.skills,
+.projects,
+.contact {
+    scroll-margin-top: 100px;
+}
+
 .navigation {
     background-color: #e7e5e545;
     backdrop-filter: blur(10px);
@@ -47,35 +57,25 @@ body {
 @media (max-width: 768px) {
     .navigation {
         justify-content: flex-end;
-        /* Align icon to the right */
         padding: 15px 20px;
-        /* Adjust padding for mobile */
     }
 
     .menu-icon {
         display: block;
         z-index: 1001;
-        /* Ensure icon is above the menu */
     }
 
     .navlist {
         position: absolute;
         top: 20px;
-        /* Detach from top */
         right: -100%;
-        /* Slide from right */
         left: auto;
-        /* Reset left */
         width: 60%;
-        /* Card width */
         height: auto;
-        /* Auto height for card look, or fit content? If items are few. Else 90vh */
         min-height: 500px;
         padding: 40px 20px;
         background: rgba(0, 0, 0, 0.6);
-        /* Transparent but readable */
         backdrop-filter: blur(15px);
-        /* Stronger blur for glass effect */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -83,11 +83,8 @@ body {
         gap: 30px;
         transition: 0.4s ease;
         border-radius: 15px;
-        /* Requested radius */
         border: 1px solid rgba(255, 255, 255, 0.1);
-        /* Full border for card */
         margin-right: 20px;
-        /* Spacing from edge */
     }
 
     .navlist.open {
@@ -124,7 +121,8 @@ body {
     color: rgb(255, 255, 255);
 }
 
-.navlist li a:hover {
+.navlist li a:hover,
+.navlist li a.active {
     color: #FF6D1F;
 }
 
@@ -167,8 +165,9 @@ body {
 
 .img img {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     height: auto;
+    border-radius: 15px;
 }
 
 .about {
@@ -381,7 +380,6 @@ body {
     font-size: 1rem;
 }
 
-/*Projects Section */
 
 .projects {
     display: flex;
@@ -510,7 +508,6 @@ body {
 }
 
 
-/* Contact Section */
 .contact {
     display: flex;
     flex-direction: column;
@@ -519,7 +516,7 @@ body {
     min-height: 80vh;
     background-color: #00000000;
     color: #ffffff;
-    padding: 50px 20px;
+    padding: 10px 20px;
 }
 
 .contact h1 {
@@ -530,7 +527,7 @@ body {
     font-family: "Instrument Serif", serif;
     font-weight: 400;
     font-style: italic;
-    margin-top: 3%;
+    margin-top: 0;
 }
 
 .contact-container {
@@ -682,7 +679,7 @@ body {
     }
 }
 
-/* Footer Section */
+
 .footer {
     background-color: #000000;
     color: #888888;

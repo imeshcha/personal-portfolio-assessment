@@ -2,28 +2,19 @@ const menuIcon = document.querySelector('#menu-icon');
 const navlist = document.querySelector('.navlist');
 
 menuIcon.onclick = (e) => {
-    e.stopPropagation(); // Prevent document click from triggering immediately
+    e.stopPropagation();
     menuIcon.classList.toggle('bx-x');
     navlist.classList.toggle('open');
-    // Hide icon when menu is open
     if (navlist.classList.contains('open')) {
         menuIcon.style.display = 'none';
     }
 };
 
-// Close menu when scrolling
-window.onscroll = () => {
-    menuIcon.classList.remove('bx-x');
-    navlist.classList.remove('open');
-    menuIcon.style.display = ''; // Revert to CSS (none on desktop, block on mobile)
-};
-
-// Close menu when clicking outside
 document.onclick = (e) => {
     if (navlist.classList.contains('open') && !navlist.contains(e.target) && e.target !== menuIcon) {
         menuIcon.classList.remove('bx-x');
         navlist.classList.remove('open');
-        menuIcon.style.display = ''; // Revert to CSS
+        menuIcon.style.display = '';
     }
 };
 
@@ -31,9 +22,31 @@ document.querySelectorAll('.navlist li a').forEach(link => {
     link.addEventListener('click', () => {
         menuIcon.classList.remove('bx-x');
         navlist.classList.remove('open');
-        menuIcon.style.display = ''; // Revert to CSS
+        menuIcon.style.display = '';
     });
 });
+
+let sections = document.querySelectorAll('section, .home, .about, .education, .skills, .projects, .contact');
+let navLinks = document.querySelectorAll('.navlist li a');
+
+window.onscroll = () => {
+    menuIcon.classList.remove('bx-x');
+    navlist.classList.remove('open');
+    menuIcon.style.display = '';
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('.navlist li a[href*=' + id + ']').classList.add('active');
+            });
+        }
+    });
+};
 
 const textDisplay = document.querySelector(".text-slider");
 const phrases = ["FRONT END DEVELOPER", "BLOCKCHAIN DEVELOPER", "CONTENT CREATOR"];
